@@ -1,3 +1,6 @@
+import { login } from "@/lib/appwrite";
+import { useGlobalContext } from "@/lib/global-provider";
+import { Redirect } from "expo-router";
 import React from "react";
 import {
   Image,
@@ -13,8 +16,16 @@ import icons from "@/constants/icons";
 import images from "@/constants/images";
 
 const SignIn = () => {
-  const handleLogin = () => {
-    // Handle Google login logic here
+  const {refetch, loading, isLogged} = useGlobalContext();
+  if (!loading && isLogged) return <Redirect href="/" />;
+  const handleLogin =  async () => {
+    const result = await login();
+    if (result) {
+      refetch();
+    }
+    else {
+      console.log("Login failed");
+    }
   };
 
   return (
