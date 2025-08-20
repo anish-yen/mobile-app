@@ -1,22 +1,23 @@
-import { Link } from "expo-router";
-import { Text, View } from "react-native";
+import BarberCard from "@/components/BarberCard";
+import { SafeAreaView, Text, View } from "react-native";
 
-export default function Index() {
+const barber = {
+  name: "John Smith",
+  specialty: "Fade Specialist",
+  image: "https://randomuser.me/api/portraits/men/32.jpg",
+  nextAvailableTime: "2:30 PM",
+  price: 25,
+};
+
+const Home = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text className="font-bold my-10 font-rubik text-3xl">
-        Welcome to myBarber
-      </Text>
-      <Link href="/sign-in">Sign In</Link>
-      <Link href="/explore">Explore</Link>
-      <Link href="/profile">Profile</Link>
-      <Link href="/properties/1">Property 1</Link>
-    </View>
+    <SafeAreaView className="h-full bg-white">
+      <View className="px-5 mt-5">
+        <Text className="text-2xl font-rubik-bold mb-5">Your Barber</Text>
+        <BarberCard barber={barber} />
+      </View>
+    </SafeAreaView>
   );
-}
+};
+
+export default Home;
