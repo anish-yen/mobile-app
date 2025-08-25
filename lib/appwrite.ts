@@ -1,12 +1,12 @@
 import * as Linking from "expo-linking";
 import { openAuthSessionAsync } from "expo-web-browser";
 import {
-    Account,
-    Avatars,
-    Client,
-    Databases,
-    OAuthProvider,
-    Storage
+  Account,
+  Avatars,
+  Client,
+  Databases,
+  OAuthProvider,
+  Storage
 } from "react-native-appwrite";
 
 export const config = { 
@@ -14,6 +14,7 @@ export const config = {
     endpoint: process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT ,
     projectID: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID,
 }
+
 
 export const client = new Client();
 client
